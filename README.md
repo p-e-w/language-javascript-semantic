@@ -2,6 +2,9 @@
 
 This [Atom](https://atom.io/) package enables [semantic highlighting](https://medium.com/programming-ideas-tutorial-and-experience/coding-in-color-3a6db2743a1e) for JavaScript code. Identifiers are highlighted in different colors (the same identifier always in the same color) while everything else (like language keywords) is displayed in various shades of gray. This approach runs contrary to classical ideas about syntax highlighting but is rapidly becoming very popular.
 
+![With Dark Theme](https://raw.githubusercontent.com/p-e-w/language-javascript-semantic/images/screenshot-dark-theme.png)
+![With Light Theme](https://raw.githubusercontent.com/p-e-w/language-javascript-semantic/images/screenshot-light-theme.png)
+
 In addition to being a useful tool for actual, productive JavaScript coding, the package also demonstrates some techniques that might serve other developers when creating similar packages for other languages:
 
 * Advanced use of Less to **dynamically create a syntax theme** that goes well with the existing one
