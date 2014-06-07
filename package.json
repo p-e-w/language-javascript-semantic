@@ -1,0 +1,11 @@
+{
+  "name": "language-javascript-semantic",
+  "main": "./lib/main",
+  "version": "0.0.0",
+  "description": "Semantic highlighting for JavaScript",
+  "repository": "https://github.com/p-e-w/language-javascript-semantic",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  }
+}

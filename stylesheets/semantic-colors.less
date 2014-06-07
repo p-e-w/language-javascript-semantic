@@ -1,0 +1,62 @@
+/*
+ * JavaScript Semantic Highlighting Package for Atom
+ *
+ * Copyright (c) 2014 Philipp Emanuel Weidmann <pew@worldwidemann.com>
+ *
+ * Nemo vir est qui mundum non reddat meliorem.
+ *
+ * Released under the terms of the MIT License (http://opensource.org/licenses/MIT)
+ */
+
+@import "syntax-variables";
+
+@bright-text-color:
+  contrast(@syntax-background-color,
+      lighten(@syntax-text-color, 20%),
+      darken(@syntax-text-color, 20%));
+
+.text-color(@contrast) {
+  color: mix(@bright-text-color, @syntax-background-color, @contrast);
+}
+
+.source.js-semantic {
+  // Reset font attributes to prevent interference from main syntax theme
+  .text-color(80%);
+  background-color: transparent;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+
+  &.identifier {
+    .color-indices(8);
+
+    .color-indices(@n, @i: 1) when (@i =< @n) {
+      @hue: @i * (360 / @n);
+      &.color-index-@{i} {
+        // Choose a color of the given hue with good contrast
+        color: contrast(@syntax-background-color,
+            hsl(@hue, 100%, 25%),
+            hsl(@hue, 65%, 75%));
+      }
+      .color-indices(@n, @i + 1);
+    }
+  }
+
+  &.comment {
+    .text-color(40%);
+  }
+
+  &.keyword {
+    font-weight: bold;
+  }
+
+  &.number {
+    .text-color(100%);
+  }
+
+  &.string,
+  &.regex {
+    // TODO: Currently, these are simply the string colors from Atom's default syntax themes
+    color: contrast(@syntax-background-color, #a8ff60, #dd1144);
+  }
+}
