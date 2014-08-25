@@ -13,6 +13,10 @@
 # but doing so throws "Error: Cannot find module 'first-mate'"
 Grammar = require atom.config.resourcePath + "/node_modules/first-mate/lib/grammar.js"
 
+GrammarRegistry = new (require(atom.config.resourcePath + "/node_modules/first-mate/lib/grammar-registry.js"))();
+
+JSGrammar = GrammarRegistry.loadGrammarSync(atom.config.resourcePath + "/node_modules/language-javascript/grammars/javascript.json")
+
 acorn = require "./acorn-modified.js"
 
 numberOfColors = 8
@@ -25,7 +29,8 @@ class JavaScriptSemanticGrammar extends Grammar
     super(registry, {name, scopeName})
 
   # Never select automatically
-  getScore: -> 0
+  getScore: () ->
+      JSGrammar.getScore.apply(JSGrammar, arguments)
 
   acornTokenize: (line) ->
     tokens = []
