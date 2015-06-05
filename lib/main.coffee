@@ -10,4 +10,4 @@ JavaScriptSemanticGrammar = require "./javascript-semantic-grammar"
 
 module.exports =
   activate: (state) ->
-    atom.syntax.addGrammar(new JavaScriptSemanticGrammar(atom.syntax))
+    atom.grammars.addGrammar(new JavaScriptSemanticGrammar(atom.grammars))

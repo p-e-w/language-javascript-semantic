@@ -6,13 +6,8 @@
 #
 # Released under the terms of the MIT License (http://opensource.org/licenses/MIT)
 
-{$} = require "atom"
-
-# TODO: This should be
-#  {Grammar} = require "first-mate"
-# but doing so throws "Error: Cannot find module 'first-mate'"
-Grammar = require atom.config.resourcePath + "/node_modules/first-mate/lib/grammar.js"
-
+$ = require "jquery"
+{Grammar} = require "first-mate"
 acorn = require "./acorn-modified.js"
 
 numberOfColors = 8
@@ -88,12 +83,16 @@ class JavaScriptSemanticGrammar extends Grammar
     return null
 
   tokenizeLine: (line, ruleStack, firstLine = false) ->
+    tags = []
     tokens = []
 
     outerRegistry = @registry
     addToken = (text, scopes = null) ->
-      tokens.push outerRegistry.createToken(text,
-          ["source.js-semantic" + (if scopes? then ("." + scopes) else "")])
+      fullScopes = "source.js-semantic" + (if scopes? then ("." + scopes) else "")
+      tags.push outerRegistry.startIdForScope(fullScopes)
+      tags.push text.length
+      tags.push outerRegistry.endIdForScope(fullScopes)
+      tokens.push { value: text, scopes: [fullScopes] }
 
     acornStartOffset = 0
     if ruleStack? and "unterminated_comment" in ruleStack
@@ -102,7 +101,7 @@ class JavaScriptSemanticGrammar extends Grammar
       if commentEnd is -1
         # Multi-line comment continues
         addToken line, "comment"
-        return { tokens: tokens, ruleStack: ruleStack }
+        return { line: line, tags: tags, tokens: tokens, ruleStack: ruleStack }
       else
         # Make Acorn skip over partial comment
         acornStartOffset = commentEnd + 2
@@ -131,4 +130,4 @@ class JavaScriptSemanticGrammar extends Grammar
     if tokens.length is 0
       addToken ""
 
-    return { tokens: tokens, ruleStack: tokenizeResult.rules }
+    return { line: line, tags: tags, tokens: tokens, ruleStack: tokenizeResult.rules }
