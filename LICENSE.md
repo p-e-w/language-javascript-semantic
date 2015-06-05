@@ -1,4 +1,4 @@
-Copyright © 2014 Philipp Emanuel Weidmann (<pew@worldwidemann.com>)
+Copyright © 2014-2015 Philipp Emanuel Weidmann (<pew@worldwidemann.com>)
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

@@ -1,6 +1,6 @@
 # JavaScript Semantic Highlighting Package for Atom
 #
-# Copyright (c) 2014 Philipp Emanuel Weidmann <pew@worldwidemann.com>
+# Copyright (c) 2014-2015 Philipp Emanuel Weidmann <pew@worldwidemann.com>
 #
 # Nemo vir est qui mundum non reddat meliorem.
 #

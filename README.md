@@ -18,11 +18,6 @@ Acorn is a mature, fast JavaScript parser that is available through [npm](https:
 
 As a result, this package ships with a modified version of Acorn, but it would be preferable if those issues could be worked out so that Acorn can be pulled from npm in the future.
 
-## Usage
-
-1. Install the package (from Atom's Settings View)
-2. When editing a JavaScript file, switch the grammar (using the Grammar Selector) to "JavaScript (Semantic Highlighting)"
-
 ## Acknowledgments
 
 ### Prior Art
@@ -38,6 +33,6 @@ As a result, this package ships with a modified version of Acorn, but it would b
 
 ## License
 
-Copyright © 2014 Philipp Emanuel Weidmann (<pew@worldwidemann.com>)
+Copyright © 2014-2015 Philipp Emanuel Weidmann (<pew@worldwidemann.com>)
 
 Released under the terms of the [MIT License](http://opensource.org/licenses/MIT)
