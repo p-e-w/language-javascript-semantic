@@ -22,7 +22,7 @@ class JavaScriptSemanticGrammar extends Grammar
   # Ensures that grammar takes precedence over standard JavaScript grammar
   getScore: ->
     jsGrammar = @registry.grammarForScopeName("source.js")
-    return if jsGrammar? then jsGrammar.getScore.apply(jsGrammar, arguments) else 0
+    return if jsGrammar? then (jsGrammar.getScore.apply(jsGrammar, arguments) + 1) else 0
 
   acornTokenize: (line) ->
     tokens = []
