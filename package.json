@@ -1,7 +1,7 @@
 {
   "name": "language-javascript-semantic",
   "main": "./lib/main",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Semantic highlighting for JavaScript",
   "repository": "https://github.com/p-e-w/language-javascript-semantic",
   "license": "MIT",
