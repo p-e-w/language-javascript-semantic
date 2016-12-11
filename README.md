@@ -1,3 +1,8 @@
+### :red_circle: This project is *on hold* pending resolution of [atom#8669](https://github.com/atom/atom/issues/8669). I'm tired of chasing an undocumented private API.
+
+---
+
+
 ## See Your JavaScript Code in a New Light
 
 This [Atom](https://atom.io/) package enables [semantic highlighting](https://medium.com/programming-ideas-tutorial-and-experience/coding-in-color-3a6db2743a1e) for JavaScript code. Identifiers are highlighted in different colors (the same identifier always in the same color) while everything else (like language keywords) is displayed in various shades of gray. This approach runs contrary to classical ideas about syntax highlighting but is rapidly becoming very popular.
