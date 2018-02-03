@@ -19,7 +19,7 @@
   color: mix(@bright-text-color, @syntax-background-color, @contrast);
 }
 
-.source.js-semantic {
+.syntax--source.syntax--js-semantic {
   // Reset font attributes to prevent interference from main syntax theme
   .text-color(80%);
   background-color: transparent;
@@ -27,12 +27,12 @@
   font-weight: normal;
   text-decoration: none;
 
-  &.identifier {
+  &.syntax--identifier {
     .color-indices(8);
 
     .color-indices(@n, @i: 1) when (@i =< @n) {
       @hue: @i * (360 / @n);
-      &.color-index-@{i} {
+      &.syntax--color-index-@{i} {
         // Choose a color of the given hue with good contrast
         color: contrast(@syntax-background-color,
             hsl(@hue, 100%, 25%),
@@ -42,20 +42,20 @@
     }
   }
 
-  &.comment {
+  &.syntax--comment {
     .text-color(40%);
   }
 
-  &.keyword {
+  &.syntax--keyword {
     font-weight: bold;
   }
 
-  &.number {
+  &.syntax--number {
     .text-color(100%);
   }
 
-  &.string,
-  &.regex {
+  &.syntax--string,
+  &.syntax--regex {
     // TODO: Currently, these are simply the string colors from Atom's default syntax themes
     color: contrast(@syntax-background-color, #a8ff60, #dd1144);
   }
